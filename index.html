@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNQ IB Sweep — Full 23 Hours</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; padding: 24px; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .sub { color: #8b949e; font-size: 13px; margin-bottom: 20px; }
+  .legend { display: flex; gap: 16px; font-size: 12px; color: #8b949e; margin-bottom: 16px; flex-wrap: wrap; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 12px; color: #8b949e; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; border-bottom: 1px solid #30363d; position: sticky; top: 0; background: #0d1117; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; }
+  tr.section td { background: #161b22; font-weight: 700; color: #58a6ff; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; padding-top: 16px; }
+  tr.playable td:first-child { border-left: 3px solid #3fb950; }
+  tr.watch td:first-child { border-left: 3px solid #d29922; }
+  tr td:first-child { border-left: 3px solid transparent; }
+  .rate { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .g { color: #3fb950; } .y { color: #d29922; } .r { color: #8b949e; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+  .tag-long { background: rgba(63,185,80,.15); color: #3fb950; }
+  .tag-short { background: rgba(248,81,73,.15); color: #f85149; }
+  .tag-watch { background: rgba(210,153,34,.15); color: #d29922; }
+  .tag-void { background: rgba(139,148,158,.15); color: #8b949e; }
+  .days { white-space: nowrap; font-size: 13px; }
+  .skip { color: #6e7681; text-decoration: line-through; }
+  .note { font-size: 12px; color: #8b949e; margin-top: 20px; line-height: 1.6; }
+  .tzbar { margin-bottom: 16px; font-size: 13px; color: #8b949e; }
+  .tzbar select { background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 4px 8px; font-size: 13px; margin: 0 4px; }
+  .tzhint { font-size: 12px; }
+  @media (max-width: 640px) { th:nth-child(4), td:nth-child(4) { display: none; } }
+</style>
+</head>
+<body>
+<h1>MNQ Initial Balance</h1>
+<div class="sub">1-hour IB by rejection · 2-hour sessions · 5-min candles · wick breaks · Mon–Fri ET · Rank on 6-mo, health-check on 3-mo · Cutoff 70%</div>
+<div class="legend">
+  <span><span class="dot" style="background:#3fb950"></span>≥ 70% — playable</span>
+  <span><span class="dot" style="background:#d29922"></span>65–70% — watch</span>
+  <span><span class="dot" style="background:#8b949e"></span>&lt; 65% — dead</span>
+</div>
+<div class="tzbar">Window times in <select id="tz-select">
+  <option value="America/New_York" selected>US Eastern</option>
+  <option value="America/Chicago">US Central</option>
+  <option value="America/Denver">US Mountain</option>
+  <option value="America/Los_Angeles">US Pacific</option>
+  <option value="Europe/London">London</option>
+  <option value="Europe/Berlin">Berlin</option>
+  <option value="Asia/Tokyo">Tokyo</option>
+  <option value="Australia/Sydney">Sydney</option>
+  <option value="UTC">UTC</option>
+</select> <span class="tzhint">Take-on days stay US Eastern calendar days</span></div>
+<table>
+<tr><th>Window</th><th>Long 6-mo / 3-mo</th><th>Short 6-mo / 3-mo</th><th>Verdict</th><th>Take on</th></tr>
+<tr class="section"><td colspan="5">Morning</td></tr>
+<tr class="playable"><td data-et-start="09:00" data-et-end="09:30">9:00 – 9:30 AM</td><td><span class="rate g">84.85</span> <span class="g">/ 88.89</span></td><td><span class="rate r">52.31</span> <span class="y">/ 66.67</span></td><td><span class="tag tag-long">LONG</span> best on board</td><td class="days">Mon, <span class="skip">Tue</span>, Wed, Thu, Fri</td></tr>
+<tr class="playable"><td data-et-start="09:30" data-et-end="10:30">9:30 – 10:30 AM</td><td><span class="rate g">73.02</span> <span class="y">/ 68.97</span></td><td><span class="rate r">20.59 / 45.95</span></td><td><span class="tag tag-long">LONG</span> soft lately</td><td class="days">Mon, Tue, Wed, Thu, <span class="skip">Fri</span></td></tr>
+<tr class="playable"><td data-et-start="10:00" data-et-end="11:00">10 – 11 AM</td><td><span class="rate g">73.91</span> <span class="g">/ 76.67</span></td><td><span class="rate r">53.23 / 50.00</span></td><td><span class="tag tag-long">LONG</span></td><td class="days">Mon, Tue, Wed, Thu, Fri</td></tr>
+<tr class="section"><td colspan="5">Evening</td></tr>
+<tr class="playable"><td data-et-start="18:00" data-et-end="19:00">6 – 7 PM</td><td><span class="rate g">70.37</span> <span class="g">/ 73.08</span></td><td><span class="rate r">56.00 / 61.54</span></td><td><span class="tag tag-long">LONG</span></td><td class="days">Mon, Tue, Wed, Thu</td></tr>
+<tr class="playable"><td data-et-start="19:00" data-et-end="20:00">7 – 8 PM</td><td><span class="rate g">70.00</span> <span class="g">/ 70.00</span></td><td><span class="rate r">61.36 / 59.09</span></td><td><span class="tag tag-long">LONG</span></td><td class="days"><span class="skip">Mon</span>, <span class="skip">Tue</span>, Wed, Thu</td></tr>
+<tr class="playable"><td data-et-start="20:00" data-et-end="21:00">8 – 9 PM</td><td><span class="rate r">63.16</span> <span class="g">/ 73.08</span></td><td><span class="rate g">74.47</span> <span class="g">/ 88.46</span></td><td><span class="tag tag-short">SHORT</span> strongest recent</td><td class="days">Mon, Tue, Wed, Thu</td></tr>
+<tr class="watch"><td data-et-start="21:00" data-et-end="22:00">9 – 10 PM</td><td><span class="rate r">63.46</span> <span class="g">/ 76.00</span></td><td><span class="rate y">69.23</span> <span class="y">/ 67.86</span></td><td><span class="tag tag-watch">WATCH</span> long heating up</td><td class="days">Mon, Tue, Wed, Thu</td></tr>
+<tr class="section"><td colspan="5">Overnight</td></tr>
+<tr class="playable"><td data-et-start="00:00" data-et-end="01:00">12 – 1 AM</td><td><span class="rate y">69.74</span> <span class="r">/ 67.57</span></td><td><span class="rate g">74.55</span> <span class="g">/ 75.86</span></td><td><span class="tag tag-short">SHORT</span></td><td class="days">Mon, Tue, Wed, Thu, Fri</td></tr>
+<tr class="playable"><td data-et-start="01:00" data-et-end="02:00">1 – 2 AM</td><td><span class="rate g">78.46</span> <span class="g">/ 72.73</span></td><td><span class="rate y">69.70</span> <span class="g">/ 75.76</span></td><td><span class="tag tag-long">LONG</span></td><td class="days">Mon, Tue, Wed, Thu, Fri</td></tr>
+<tr class="playable"><td data-et-start="02:00" data-et-end="03:00">2 – 3 AM</td><td><span class="rate g">72.06</span> <span class="g">/ 78.57</span></td><td><span class="rate r">57.14 / 52.63</span></td><td><span class="tag tag-long">LONG</span></td><td class="days"><span class="skip">Mon</span>, Tue, Wed, Thu, Fri</td></tr>
+<tr><td data-et-start="03:00" data-et-end="04:00">3 – 4 AM</td><td><span class="rate y">68.66</span> <span class="g">/ 72.41</span></td><td><span class="rate y">68.75</span> <span class="g">/ 72.97</span></td><td><span class="r">—</span></td><td class="days"><span class="skip">Mon</span>, <span class="skip">Tue</span>, Wed, Thu, Fri</td></tr>
+</table>
+<div class="note">
+  8 playable windows clear the 70% 6-mo cutoff (6 long, 2 short). 1 window on watch — strong 3-mo but doesn't clear 6-mo yet: 9–10 PM long (76.00%).<br>
+  Data: Edgeful, MNQ, honest 2-hour sessions. 6-mo: 2026-04-06–10-05 · 3-mo: 2026-07-06–10-05.<br>
+  Take on: skip a weekday if its double-break rate tops 25% or no-break tops 30% — Edgeful "strategy by weekday," MNQ, trailing 6 mo, pulled 2026-10-19. Struck-through days are the skips.<br>
+  Overnight rows read by calendar morning: "Mon" on 12–1 AM means Sunday night going into early Monday morning, "Tue" means Monday night into Tuesday morning, etc. Evening and morning rows are literal.
+</div>
+<script>
+(function(){
+  var ET = 'America/New_York';
+  var sel = document.getElementById('tz-select');
+  var cells = document.querySelectorAll('td[data-et-start]');
+  cells.forEach(function(td){ td.dataset.etLabel = td.textContent.trim(); });
+
+  function wallInTZ(tz, h, m){
+    var now = new Date();
+    var p = {};
+    new Intl.DateTimeFormat('en-US',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit'})
+      .formatToParts(now).forEach(function(x){ p[x.type]=x.value; });
+    var guess = Date.UTC(+p.year, +p.month-1, +p.day, h, m);
+    var tf = new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false});
+    for (var i=0;i<4;i++){
+      var q = {};
+      tf.formatToParts(new Date(guess)).forEach(function(x){ q[x.type]=x.value; });
+      var wh = (+q.hour)%24, wm = +q.minute;
+      var diff = (h*60+m)-(wh*60+wm);
+      if (diff > 720) diff -= 1440;
+      if (diff < -720) diff += 1440;
+      if (diff===0) break;
+      guess += diff*60000;
+    }
+    return new Date(guess);
+  }
+  function objOf(parts){ var o={}; parts.forEach(function(x){ o[x.type]=x.value; }); return o; }
+  function fmtRange(tz, sh, sm, eh, em){
+    var f = new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',hour12:true});
+    var a = objOf(f.formatToParts(wallInTZ(ET, sh, sm)));
+    var b = objOf(f.formatToParts(wallInTZ(ET, eh, em)));
+    var s = a.hour+':'+a.minute, e = b.hour+':'+b.minute;
+    if (a.dayPeriod === b.dayPeriod) return s+' – '+e+' '+a.dayPeriod;
+    return s+' '+a.dayPeriod+' – '+e+' '+b.dayPeriod;
+  }
+  function render(){
+    var tz = sel.value;
+    try { localStorage.setItem('ib-sweep-tz', tz); } catch(e){}
+    cells.forEach(function(td){
+      if (tz === ET) { td.textContent = td.dataset.etLabel; return; }
+      var s = td.dataset.etStart.split(':'), e = td.dataset.etEnd.split(':');
+      td.textContent = fmtRange(tz, +s[0], +s[1], +e[0], +e[1]);
+    });
+  }
+  try {
+    var saved = localStorage.getItem('ib-sweep-tz');
+    if (saved) sel.value = saved;
+  } catch(e){}
+  sel.addEventListener('change', render);
+  render();
+})();
+</script>
+</body>
+</html>
